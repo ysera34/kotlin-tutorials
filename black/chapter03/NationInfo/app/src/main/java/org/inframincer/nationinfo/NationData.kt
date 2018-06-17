@@ -8,3 +8,15 @@ data class NationData (
     var name:String,
     var capital:String
 )
+
+data class NationDetailData (
+    val name: String,
+    val capital: String,
+    val volume: String,
+    val population: String,
+    val language: String
+)
+
+data class GsonData(
+    val data: ArrayList<NationDetailData>
+)

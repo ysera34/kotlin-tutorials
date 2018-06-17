@@ -18,11 +18,11 @@ class NationListActivity : AppCompatActivity() {
         var typedArray: TypedArray = resources.obtainTypedArray(R.array.nation_flags)
 
         val nationAdapter = NationAdapter(this, listOf(
-            NationData(typedArray.getResourceId(0, -1), "Korea", "Seoul"),
-            NationData(typedArray.getResourceId(1, -1), "Korea", "Seoul"),
-            NationData(typedArray.getResourceId(2, -1), "Korea", "Seoul"),
-            NationData(typedArray.getResourceId(3, -1), "Korea", "Seoul"),
-            NationData(typedArray.getResourceId(4, -1), "Korea", "Seoul")
+            NationData(typedArray.getResourceId(0, -1), "Belgium", "Brussels"),
+            NationData(typedArray.getResourceId(1, -1), "Argentina", "Buenos Aires"),
+            NationData(typedArray.getResourceId(2, -1), "Brazil", "Brasília"),
+            NationData(typedArray.getResourceId(3, -1), "Canada", "Ottawa"),
+            NationData(typedArray.getResourceId(4, -1), "China", "Beijing")
         ))
 
         nationRecyclerView.adapter = nationAdapter

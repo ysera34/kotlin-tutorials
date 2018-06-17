@@ -1,5 +1,6 @@
 package org.inframincer.nationinfo
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
@@ -30,7 +31,8 @@ class NationViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClick
 
     override fun onClick(v: View?) {
         Toast.makeText(v?.context, mNationData?.name, Toast.LENGTH_SHORT).show()
-//        val intent = Intent(v?.context, NationActivity::class.java)
-//        intent.putExtra(NationActivity.EXTRA_NATION_NAME, mNationData?.name)
+        val intent = Intent(v?.context, NationDetailActivity::class.java)
+        intent.putExtra(NationDetailActivity.EXTRA_NAITON_NAME, mNationData?.name)
+        v?.context?.startActivity(intent)
     }
 }

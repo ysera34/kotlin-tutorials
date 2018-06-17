@@ -1,0 +1,39 @@
+{
+  "data":[
+    {
+      "name":"Belgium",
+      "capital":"Brussels",
+      "volume":"30,528 km2 (11,787 sq mi) (136th)",
+      "population":"11,358,357 (75th)",
+      "language":"Dutch, French, German"
+    },
+    {
+      "name":"Argentina",
+      "capital":"Buenos Aires",
+      "volume":"2,780,400 km2 (1,073,500 sq mi) (8th)",
+      "population":"43,847,430",
+      "language":"Spanish"
+    },
+    {
+      "name":"Brazil",
+      "capital":"Brasília",
+      "volume":"8,515,767 km2 (3,287,956 sq mi) (5th)",
+      "population":"209,129,000 (6th)",
+      "language":"Portuguese"
+    },
+    {
+      "name":"Canada",
+      "capital":"Ottawa",
+      "volume":"9,984,670 km2 (3,855,100 sq mi) (2nd)",
+      "population":"37,067,011 (38th)",
+      "language":"English, French"
+    },
+    {
+      "name":"China",
+      "capital":"Beijing",
+      "volume":"9,596,961 km2 (3,705,407 sq mi)[g] (3rd/4th)",
+      "population":"1,403,500,365 (1st)",
+      "language":"Standard Chinese"
+    }
+  ]
+}
