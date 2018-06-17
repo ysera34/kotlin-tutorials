@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="nation_flags">
+        <item>@drawable/ic_flag_purple_100_36dp</item>
+        <item>@drawable/ic_flag_purple_300_36dp</item>
+        <item>@drawable/ic_flag_purple_500_36dp</item>
+        <item>@drawable/ic_flag_purple_700_36dp</item>
+        <item>@drawable/ic_flag_purple_900_36dp</item>
+    </array>
+</resources>

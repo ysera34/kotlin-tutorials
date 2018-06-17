@@ -1,12 +1,12 @@
 package org.inframincer.nationinfo
 
+import android.content.res.TypedArray
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
 
-class NationListActivity : AppCompatActivity(), View.OnClickListener {
+class NationListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,18 +15,16 @@ class NationListActivity : AppCompatActivity(), View.OnClickListener {
         val nationRecyclerView = findViewById(R.id.nation_recycler_view) as RecyclerView
         nationRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        var typedArray: TypedArray = resources.obtainTypedArray(R.array.nation_flags)
+
         val nationAdapter = NationAdapter(this, listOf(
-            NationData(R.mipmap.ic_launcher_round, "Korea", "Seoul"),
-            NationData(R.mipmap.ic_launcher_round, "Korea", "Seoul"),
-            NationData(R.mipmap.ic_launcher_round, "Korea", "Seoul"),
-            NationData(R.mipmap.ic_launcher_round, "Korea", "Seoul"),
-            NationData(R.mipmap.ic_launcher_round, "Korea", "Seoul")
+            NationData(typedArray.getResourceId(0, -1), "Korea", "Seoul"),
+            NationData(typedArray.getResourceId(1, -1), "Korea", "Seoul"),
+            NationData(typedArray.getResourceId(2, -1), "Korea", "Seoul"),
+            NationData(typedArray.getResourceId(3, -1), "Korea", "Seoul"),
+            NationData(typedArray.getResourceId(4, -1), "Korea", "Seoul")
         ))
 
         nationRecyclerView.adapter = nationAdapter
-    }
-
-    override fun onClick(v: View?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
