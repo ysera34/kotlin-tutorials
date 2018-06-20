@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper
 data class UserInfo(
     val name: String = "No Name",
     val age: String = "0",
-    val TelNumber: String = "No TelNumber",
-    val PicturePath: String
+    val telNumber: String = "No TelNumber",
+    val picturePath: String
 )
 
 class DBHandler(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
@@ -20,7 +20,7 @@ class DBHandler(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_
     }
 
     val TABLE_NAME = "user"
-    val ID = "id"
+    val ID = "_id"
     val NAME = "name"
     val AGE = "age"
     val TEL_NUMBER = "tel_number"
@@ -39,9 +39,9 @@ class DBHandler(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_
         var info = ContentValues()
         info.put(NAME, user.name)
         info.put(AGE, user.age)
-        info.put(TEL_NUMBER, user.TelNumber)
-        info.put(PICTURE_PATH, user.PicturePath)
-        writableDatabase.insert(TABLE_NAME, null, null)
+        info.put(TEL_NUMBER, user.telNumber)
+        info.put(PICTURE_PATH, user.picturePath)
+        writableDatabase.insert(TABLE_NAME, null, info)
     }
 
     fun deleteUser(id: Long) {
@@ -53,6 +53,6 @@ class DBHandler(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        
+
     }
 }
