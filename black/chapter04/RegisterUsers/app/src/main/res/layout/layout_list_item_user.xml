@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    tools:background="@color/colorAccent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/profile_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_width="48dp"
+        tools:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:drawable/ic_menu_gallery"/>
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/profile_image_view"
+        android:layout_marginTop="4dp"
+        tools:text="No Name"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/tel_number_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/profile_image_view"
+        android:layout_below="@+id/name_text_view"
+        android:layout_marginTop="4dp"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="12sp"
+        tools:text="No Tel Number"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_width="32dp"
+        tools:layout_height="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@android:drawable/ic_delete"/>
+
+</RelativeLayout>
