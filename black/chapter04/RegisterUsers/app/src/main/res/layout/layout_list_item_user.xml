@@ -38,6 +38,7 @@
         tools:text="No Tel Number"/>
 
     <ImageButton
+        android:id="@+id/delete_image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_width="32dp"

@@ -6,13 +6,6 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-data class UserInfo(
-    val name: String = "No Name",
-    val age: String = "0",
-    val telNumber: String = "No TelNumber",
-    val picturePath: String
-)
-
 class DBHandler(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object {
         val DB_NAME = "user.db"
