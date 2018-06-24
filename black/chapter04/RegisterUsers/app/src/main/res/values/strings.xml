@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RegisterUsers</string>
+    <string name="save_name_text">Name:</string>
+    <string name="save_age_text">Age :</string>
+    <string name="save_tel_number_text">tel :</string>
+    <string name="save_button_text">add</string>
 </resources>
