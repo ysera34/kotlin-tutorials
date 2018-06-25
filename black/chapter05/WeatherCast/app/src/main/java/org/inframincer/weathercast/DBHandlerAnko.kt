@@ -61,6 +61,6 @@ class DBHandlerAnko(context: Context) : SQLiteOpenHelper(context, DB_NAME, null,
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        
+
     }
 }
