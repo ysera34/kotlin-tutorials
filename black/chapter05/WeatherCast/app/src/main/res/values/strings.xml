@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">WeatherCast</string>
+    <string name="menu_add">add</string>
+    <string name="current_temp">%s \u2103</string>
+    <string name="min_max_temp" formatted="false">%s \u2103 / %s \u2103</string>
+    <string name="percent">%s %%</string>
+    <string name="percent_humidity">Humidity : </string>
+    <string name="percent_cloudy">Cloudy : </string>
+    <string name="speed_wind">Wind : </string>
 </resources>
