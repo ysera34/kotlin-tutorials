@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="text_view">TextView</string>
+    <string name="click">Click</string>
 </resources>

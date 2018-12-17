@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="text_view">텍스트뷰</string>
+    <string name="click">클릭</string>
 </resources>
