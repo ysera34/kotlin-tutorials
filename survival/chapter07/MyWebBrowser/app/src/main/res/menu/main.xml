@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="search site" >
+        <menu >
+            <item
+                android:id="@+id/action_google"
+                android:title="google" />
+            <item
+                android:id="@+id/action_naver"
+                android:title="naver" />
+            <item
+                android:id="@+id/action_daum"
+                android:title="daum" />
+        </menu>
+    </item>
+    <item android:title="developer info" >
+        <menu >
+            <item
+                android:id="@+id/action_call"
+                android:title="call" />
+            <item
+                android:id="@+id/action_send_text"
+                android:title="send text" />
+            <item
+                android:id="@+id/action_email"
+                android:title="email" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="home"
+        app:showAsAction="ifRoom" />
+
+</menu>
