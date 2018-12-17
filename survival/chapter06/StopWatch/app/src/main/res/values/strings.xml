@@ -3,4 +3,5 @@
     <string name="init_second">0</string>
     <string name="init_milli_second">00</string>
     <string name="lap_time">lab time</string>
+    <string name="lap_time_format">%1$d LAB : %2$d.%3$d</string>
 </resources>

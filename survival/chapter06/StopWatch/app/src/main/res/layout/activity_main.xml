@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/hmTextView">
 
         <LinearLayout
-            android:id="@+id/labLayout"
+            android:id="@+id/lapLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
