@@ -11,6 +11,10 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.browse
+import org.jetbrains.anko.email
+import org.jetbrains.anko.sendSMS
+import org.jetbrains.anko.share
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,9 +68,24 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_send_text -> {
+                /*
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, "send message")
+                    val chooser = Intent.createChooser(intent, null)
+                    if (intent.resolveActivity(packageManager) != null) {
+                        startActivity(chooser)
+                    }
+                }
+                */
+                // to Anko
+                sendSMS("031-123-1234", webView.url)
                 return true
             }
             R.id.action_email -> {
+                // to Anko
+                email("test@example.com", "title", webView.url)
                 return true
             }
         }
@@ -81,9 +100,13 @@ class MainActivity : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.action_share -> {
+                // to Anko
+                share(webView.url)
                 return true
             }
             R.id.action_browser -> {
+                // to Anko
+                browse(webView.url)
                 return true
             }
         }
