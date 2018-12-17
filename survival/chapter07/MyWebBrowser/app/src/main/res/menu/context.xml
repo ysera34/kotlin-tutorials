@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_share"
+        android:title="share page" />
+    <item
+        android:id="@+id/action_browser"
+        android:title="show default browser" />
+</menu>
