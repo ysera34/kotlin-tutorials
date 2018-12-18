@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     private val sensorManager by lazy {
         getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
+    private lateinit var tiltView: TiltView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 //        Prevent screen from turning off
@@ -24,7 +25,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        tiltView = TiltView(this)
+        setContentView(tiltView)
     }
 
     override fun onRestart() {
@@ -65,7 +68,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 //        SensorEvent.values[1] // The x-axis value. -10 ~ 0 when tilted to the left, 0 ~ 10 when tilted to the right
 //        SensorEvent.values[2] // The x-axis value. unused
         p0?.let {
-            Log.d("MainActivity", "onSensorChanged: x: ${p0.values[0]}, y: ${p0.values[1]}, z: ${p0.values[]}")
+            Log.d("MainActivity", "onSensorChanged: x: ${p0.values[0]}, y: ${p0.values[1]}, z: ${p0.values[2]}")
         }
+
+        tiltView.onSensorEvent(p0)
     }
 }
