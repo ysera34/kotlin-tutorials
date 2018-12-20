@@ -14,6 +14,7 @@ import org.jetbrains.anko.alert
 import org.jetbrains.anko.noButton
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.yesButton
+import kotlin.concurrent.timer
 
 class MainActivity : AppCompatActivity() {
 
@@ -81,5 +82,17 @@ class MainActivity : AppCompatActivity() {
         val adapter = MyPagerAdapter(supportFragmentManager)
         adapter.updateFragments(fragments)
         viewPager.adapter = adapter
+
+        timer(period = 3000) {
+            runOnUiThread {
+                if (viewPager.currentItem < adapter.count - 1) {
+                    viewPager.currentItem = viewPager.currentItem + 1
+                } else {
+                    viewPager.currentItem = 0
+                }
+            }
+        }
+
+
     }
 }
