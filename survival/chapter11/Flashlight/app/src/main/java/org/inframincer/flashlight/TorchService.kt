@@ -12,13 +12,28 @@ class TorchService : Service() {
         Torch(this)
     }
 
+    private var isRunning = false
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
+            // execute in app
             "on" -> {
                 torch.flashOn()
+                isRunning = true
             }
             "off" -> {
                 torch.flashOff()
+                isRunning = false
+            }
+            // execute in service
+            // Because the action value is not set when the service is started in the widget.
+            else -> {
+                isRunning = !isRunning
+                if (isRunning) {
+                    torch.flashOn()
+                } else {
+                    torch.flashOff()
+                }
             }
         }
         return super.onStartCommand(intent, flags, startId)
