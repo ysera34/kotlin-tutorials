@@ -16,7 +16,10 @@
         android:text="do"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="22dp"
+        app:layout_constraintEnd_toStartOf="@+id/re"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
@@ -28,19 +31,23 @@
         android:text="re"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="93dp"
+        app:layout_constraintEnd_toStartOf="@+id/mi"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/do1"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/me"
+        android:id="@+id/mi"
         android:layout_width="50dp"
         android:layout_height="279dp"
         android:background="@android:color/holo_orange_light"
         android:gravity="center"
-        android:text="me"
+        android:text="mi"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="164dp"
+        app:layout_constraintEnd_toStartOf="@+id/fa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/re"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
@@ -52,7 +59,9 @@
         android:text="fa"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="236dp"
+        app:layout_constraintEnd_toStartOf="@+id/sol"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/mi"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
@@ -64,7 +73,9 @@
         android:text="sol"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="307dp"
+        app:layout_constraintEnd_toStartOf="@+id/la"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fa"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
@@ -76,7 +87,9 @@
         android:text="la"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="378dp"
+        app:layout_constraintEnd_toStartOf="@+id/si"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/sol"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
@@ -88,7 +101,9 @@
         android:text="si"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="450dp"
+        app:layout_constraintEnd_toStartOf="@+id/do2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/la"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
@@ -100,6 +115,8 @@
         android:text="do"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="521dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/si"
         tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>
