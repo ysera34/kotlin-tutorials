@@ -4,15 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.inframincer.xylophone.MainActivity">
+    tools:context="org.inframincer.xylophone.MainActivity"
+    tools:layout_editor_absoluteY="73dp">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/do1"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_red_dark"
+        android:gravity="center"
+        android:text="do"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="16dp" />
 
+    <TextView
+        android:id="@+id/re"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:text="re"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/me"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center"
+        android:text="me"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="164dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/fa"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="fa"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="236dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/sol"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center"
+        android:text="sol"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/la"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:text="la"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="378dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/si"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_purple"
+        android:gravity="center"
+        android:text="si"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="450dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/do2"
+        android:layout_width="50dp"
+        android:layout_height="279dp"
+        android:background="@android:color/holo_red_dark"
+        android:gravity="center"
+        android:text="do"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="521dp"
+        tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>
