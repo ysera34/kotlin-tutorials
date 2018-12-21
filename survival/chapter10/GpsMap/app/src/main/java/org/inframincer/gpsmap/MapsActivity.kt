@@ -1,7 +1,17 @@
 package org.inframincer.gpsmap
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
+import android.util.Log
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -9,10 +19,20 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.noButton
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.yesButton
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    private val REQUEST_ACCESS_FINE_LOCATION = 1000
+
     private lateinit var mMap: GoogleMap
+
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var locationRequest: LocationRequest
+    private lateinit var locationCallback: MyLocationCallback
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +41,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        locationInit()
     }
 
     /**
@@ -39,5 +61,100 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
+
+    private fun locationInit() {
+        fusedLocationProviderClient = FusedLocationProviderClient(this)
+        locationCallback = MyLocationCallback()
+        locationRequest = LocationRequest()
+
+        // GPS priority
+        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        // Update interval
+        locationRequest.interval = 5000
+        // No updates are made shorter than this.
+        locationRequest.fastestInterval = 2500
+    }
+
+    override fun onResume() {
+        super.onResume()
+        permissionCheck(cancel = {
+            showPermissionInfoDialog()
+        }, ok = {
+            addLocationListener()
+        })
+    }
+
+    override fun onPause() {
+        super.onPause()
+        removeLocationListener()
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun addLocationListener() {
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest,
+                locationCallback,
+                null)
+    }
+
+    private fun removeLocationListener() {
+        fusedLocationProviderClient.removeLocationUpdates(locationCallback)
+    }
+
+    inner class MyLocationCallback : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult?) {
+            super.onLocationResult(locationResult)
+
+            val location = locationResult?.lastLocation
+            location?.run {
+                val latlng = LatLng(latitude, longitude)
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 17f))
+
+                Log.d("MapsActivity", "latitude: $latitude, longitude: $longitude")
+            }
+        }
+    }
+
+    private fun permissionCheck(cancel: () -> Unit, ok: () -> Unit) {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                cancel()
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                        REQUEST_ACCESS_FINE_LOCATION)
+            }
+        } else {
+            ok()
+        }
+    }
+
+    private fun showPermissionInfoDialog() {
+        alert("Location permission is required to get current location information.",
+                "Why do I need permission?") {
+            yesButton {
+                ActivityCompat.requestPermissions(this@MapsActivity,
+                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                        REQUEST_ACCESS_FINE_LOCATION)
+            }
+            noButton { }
+        }.show()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            REQUEST_ACCESS_FINE_LOCATION -> {
+                if ((grantResults.isNotEmpty() &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    addLocationListener()
+                } else {
+                    toast("Permission Denied")
+                }
+                return
+            }
+        }
     }
 }
