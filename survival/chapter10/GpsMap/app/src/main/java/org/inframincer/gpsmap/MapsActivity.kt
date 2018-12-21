@@ -2,23 +2,26 @@ package org.inframincer.gpsmap
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.support.v7.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.WindowManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.noButton
 import org.jetbrains.anko.toast
@@ -34,9 +37,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: MyLocationCallback
 
+    private val polylineOptions = PolylineOptions().width(5f).color(Color.RED)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         setContentView(R.layout.activity_maps)
+        
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
@@ -111,6 +120,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 17f))
 
                 Log.d("MapsActivity", "latitude: $latitude, longitude: $longitude")
+
+                // add coordinates to polyline
+                polylineOptions.add(latlng)
+
+                // draw line
+                mMap.addPolyline(polylineOptions)
             }
         }
     }
