@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
     val d: Long = b + 1L
 
     stringType()
+    primitiveTypeLiteral()
 }
 
 fun typeConversion() {
@@ -43,4 +44,14 @@ fun stringTypeConversion() {
     val b5 = s2.toFloat()
     val b6 = s2.toDouble()
     val b7 = s3.toBoolean()
+}
+
+fun primitiveTypeLiteral() {
+    val bin1 = 0B00000011 + 1
+    println(bin1)
+    val bin2 = 0b10000000 + 1
+    println(bin2)
+
+    val x: Byte = 2
+    val y = x + 1L
 }
