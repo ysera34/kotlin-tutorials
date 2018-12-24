@@ -6,6 +6,8 @@ fun main(args: Array<String>) {
 //    val c: Long = a // Error: Type mismatch. Required:Long, Found:Int
     val c: Long = b.toLong()
     val d: Long = b + 1L
+
+    stringType()
 }
 
 fun typeConversion() {
@@ -16,4 +18,29 @@ fun typeConversion() {
     val e: Float = a.toFloat()
     val f: Double = a.toDouble()
     val g: Char = a.toChar()
+}
+
+fun stringType() {
+    var s: String = "The value before the change"
+    println(s)
+    s = "The value after the change"
+    println(s)
+}
+
+fun stringTypeConversion() {
+    val a1: Int = 27
+//    val a2: String = a1 // Type mismatch. Required:String, Found:Int
+    val a2: String = a1.toString()
+
+    val s1 = "7"
+    val s2 = "7.12"
+    val s3 = "true"
+
+    val b1 = s1.toByte()
+    val b2 = s1.toShort()
+    val b3 = s1.toInt()
+    val b4 = s1.toLong()
+    val b5 = s2.toFloat()
+    val b6 = s2.toDouble()
+    val b7 = s3.toBoolean()
 }
