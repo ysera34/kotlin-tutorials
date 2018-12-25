@@ -15,4 +15,3 @@ fun main(args: Array<String>) {
     val intItems2 = IntArray(5, { i -> i })
     val intItems3 = IntArray(5) { i -> i }
 }
-
