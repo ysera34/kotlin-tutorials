@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
 
     stringType()
     primitiveTypeLiteral()
+    stringTypeLiteral()
 }
 
 fun typeConversion() {
@@ -54,4 +55,40 @@ fun primitiveTypeLiteral() {
 
     val x: Byte = 2
     val y = x + 1L
+}
+
+fun stringTypeLiteral() {
+    val s1 = "Hercle, boreas ferox!.\nEquisos cadunt in teres aetheres!\n"
+
+    val s2 = """
+        Nobilis lanista superbe visums ausus est.
+        Sunt nutrixes talem festus, velox mineralises.
+    """.trimIndent()
+    println(s2)
+
+    val s3 = """
+        >Nobilis lanista superbe visums ausus est.
+        >Sunt nutrixes talem festus, velox mineralises.
+    """.trimMargin(">")
+    println(s3)
+
+
+    val c = "77".toInt()
+    val d = "123.5".toDouble()
+    println("$c, $d")
+
+
+    val count = 77
+    val e1 = "count = $count"
+    val e2 = "Length of $e1 is ${e1.length}"
+    println(e1)
+    println(e2)
+
+
+    val oneMillion = 1_000_000
+    val creditCardNumber = 1234_5678_9012_3456L
+    val socialSecurityNumber = 999_99_9999L
+    val hexBytes = 0xFF_EC_DE_5E
+    val bytes = 0b11010010_01101001_10010100_10010010
+    println("$oneMillion, $creditCardNumber, $socialSecurityNumber, $hexBytes, $bytes")
 }
