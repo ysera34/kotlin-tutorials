@@ -40,4 +40,53 @@ fun main(args: Array<String>) {
     // Direct delivery
     val y3 = 100
     println( if(y3 == 100) "y is 100" else "y is not 100" )
+
+
+    // when expression
+    whenUsage(2, 50, "seoul")
+}
+
+fun whenUsage(inputType: Int, score: Int, city: String) {
+    when (inputType) {
+        1 -> println("inputType 1")
+        2, 3 -> println("inputType 2 or 3")
+        else -> {
+            println("else")
+        }
+    }
+
+    when (inputType) {
+        checkInputType(inputType) -> {
+            println("type normal")
+        }
+        else -> print("type not normal")
+    }
+
+    val start = 0
+    val end = 100
+    when (score) {
+        in start..(end / 4) -> println("excellent")
+        50 -> println("average")
+        in start..end -> println("In Range")
+        else -> println("Not In Range")
+    }
+
+    val isSeoul = when (city) {
+        is String -> city.startsWith("seoul")
+        else -> false
+    }
+    println(isSeoul)
+
+    when {
+        city.length == 0 -> println("Please enter a city name.")
+        city.substring(0, 5).equals("seoul") -> println("city is seoul")
+        else -> println(city)
+    }
+}
+
+fun checkInputType(inputType: Int) : Int {
+    if (inputType >= 1 && inputType < 3) {
+        return inputType
+    }
+    return -1
 }
