@@ -22,4 +22,20 @@ fun main(args: Array<String>) {
     for (i in 10 downTo 1) { ... } // 10 ~ 1
     for (i in 10 downTo 1 step 2) { ... } // 10 ~ 1 step 2
     */
+
+    // while
+    val items4 = listOf("apple", "banana", "kiwi")
+    var index4 = 0
+    while (index4 < items4.size) {
+        println("item at $index4 is ${items4[index4]}")
+        index4++
+    }
+
+    // do-while
+    val items5 = listOf("apple", "banana", "kiwi")
+    var index5 = 0
+    do {
+        println("item at $index5 is ${items5[index5]}")
+        index5++
+    } while (index5 < items5.size)
 }
