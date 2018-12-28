@@ -26,4 +26,8 @@ fun main(args: Array<String>) {
         }
     }
     println(s7?.substring(5)?.length) // Unnecessary safe call on a non-null receiver of type String?
+
+    // Elvis operator
+    var s8: String? = "Let's learn Kotlin."
+    val s9 = s8?.length ?: 0 // val b: Int = if (s8 != null) a.length else 0
 }
