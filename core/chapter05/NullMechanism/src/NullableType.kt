@@ -12,4 +12,18 @@ fun main(args: Array<String>) {
     var s7: String? = "Let's learn Kotlin."
 //    println(s7.length) // Error: Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type String?
     if (s7 != null) println(s7.length) // Smart cast to kotlin.String
+
+    s7 = null
+    println(s7?.length)
+    s7 = "Let's learn Kotlin."
+    println(s7?.length) // Unnecessary safe call on a non-null receiver of type String?
+    println(s7.length)
+
+    if (s7 != null) { // Condition 's7 != null' is always 'true'
+        val s8: String? = s7.substring(5) // Smart cast to kotlin.String
+        if (s8 != null) {
+            println(s8.length) // Smart cast to kotlin.String
+        }
+    }
+    println(s7?.substring(5)?.length) // Unnecessary safe call on a non-null receiver of type String?
 }
