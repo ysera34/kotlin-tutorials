@@ -30,4 +30,13 @@ fun main(args: Array<String>) {
     // Elvis operator
     var s8: String? = "Let's learn Kotlin."
     val s9 = s8?.length ?: 0 // val b: Int = if (s8 != null) a.length else 0
+
+    // Assertion
+    var s10: String? = "Let's learn Kotlin."
+    val s11 = s10!!.length
+    println(s11)
+
+//    s10 = null
+//    val s12 = s10!!.length // Runtime Exception: kotlin.KotlinNullPointerException
+//    println(s12)
 }
