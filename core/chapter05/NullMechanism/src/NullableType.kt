@@ -39,4 +39,16 @@ fun main(args: Array<String>) {
 //    s10 = null
 //    val s12 = s10!!.length // Runtime Exception: kotlin.KotlinNullPointerException
 //    println(s12)
+
+    // as, as?
+    val s12 = 100
+    var s13: String?
+
+//    s13 = s12 // Error: Type mismatch. Required:String?, Found:Int
+
+    s13 = s12 as? String? // This cast can never succeed
+    println("s13 = $s13")
+
+    s13 = s12.toString()
+    println("s13 = $s13")
 }
