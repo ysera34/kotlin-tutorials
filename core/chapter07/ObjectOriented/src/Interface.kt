@@ -8,6 +8,13 @@ fun main(args: Array<String>) {
     println(player2.instrumentType)
 }
 
+open class MusicType {
+    open fun sing() {}
+    open fun play(musicalInstrument: String) {
+        println("play music")
+    }
+}
+
 interface PlayMusic {
     val musicalInstrument: String
     val instrumentType: Int
@@ -15,7 +22,8 @@ interface PlayMusic {
     fun play(musicalInstrument: String)
 }
 
-class Professional(override val musicalInstrument: String) : PlayMusic {
+class Professional(override val musicalInstrument: String) : MusicType(), PlayMusic {
+    override fun sing() {}
     override fun play(musicalInstrument: String) {
         println("professional play $musicalInstrument")
     }
