@@ -5,6 +5,8 @@ fun main(args: Array<String>) {
         StateManager.storeMessage()
     }
     OuterClass.InnerObject.printCount()
+    OuterClass.CompanionObject.printMessage() // Redundant Companion reference
+    OuterClass.printMessage()
 }
 
 interface CaptureManager {
@@ -30,4 +32,12 @@ class OuterClass {
             println(count)
         }
     }
+
+    companion object CompanionObject {
+        fun printMessage() {
+            println("called companion object")
+        }
+    }
+
+//    companion object {} // Error: Only one companion object is allowed per class
 }
