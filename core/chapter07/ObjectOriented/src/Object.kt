@@ -7,6 +7,9 @@ fun main(args: Array<String>) {
     OuterClass.InnerObject.printCount()
     OuterClass.CompanionObject.printMessage() // Redundant Companion reference
     OuterClass.printMessage()
+
+//    val privateClass = PrivateClass() // Error: Cannot access '<init>': it is private in 'PrivateClass'
+    PrivateClass.create().printPrivateClass()
 }
 
 interface CaptureManager {
@@ -40,4 +43,15 @@ class OuterClass {
     }
 
 //    companion object {} // Error: Only one companion object is allowed per class
+}
+
+class PrivateClass {
+    private constructor()
+    companion object {
+        fun create(): PrivateClass = PrivateClass()
+    }
+
+    fun printPrivateClass() {
+        println("called function of factory object")
+    }
 }
