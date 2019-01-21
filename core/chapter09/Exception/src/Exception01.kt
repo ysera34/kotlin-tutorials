@@ -1,3 +1,4 @@
+import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
 
 fun main(args: Array<String>) {
@@ -22,8 +23,16 @@ fun main(args: Array<String>) {
     }
 
     println(err)
+
+    val friendName = null
+//    val s1 = friendName ?: throw IllegalArgumentException("Please enter your friend's name.")
+//    val s2 = friendName ?: fail("Please enter your friend's name.")
 }
 
 fun parseInt(value: String): Int {
     return value.toInt()
+}
+
+fun fail(message: String): Nothing {
+    throw IllegalArgumentException(message)
 }
