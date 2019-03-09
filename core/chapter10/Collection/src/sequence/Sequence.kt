@@ -56,4 +56,30 @@ fun main(args: Array<String>) {
         .filter { print("filter($it) "); it % 2 == 0 }
         .toList()
     println("\nWith termination function: $seq2\n")
+
+    `generate sequence`()
+}
+
+fun `generate sequence`() {
+    var count = 0
+
+    val seq1 = generateSequence(count) { it + 1 }
+    val seq2 = seq1.takeWhile { it <= 5 }
+
+    println("generateSequence(): ${seq2.sum()}")
+    println("generateSequence(): ${seq2.toList()}")
+    println()
+
+    val seq3 = sequenceOf(1, 2, 3, 4, 5)
+
+    println("sequenceOf(): ${seq3.sum()}")
+    println("sequenceOf(): ${seq3.toList()}")
+    println()
+
+    val seq4 = generateSequence {
+        (count++).takeIf { it <= 5 }
+    }
+    println("generateSequence(): ${seq4.sum()}")
+    // java.lang.IllegalStateException: This sequence can be consumed only once.
+    // println("generateSequence(): ${seq4.toList()}")
 }
