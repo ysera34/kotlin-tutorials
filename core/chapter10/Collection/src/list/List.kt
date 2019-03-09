@@ -67,7 +67,7 @@ fun readListLambda(friends: List<FriendOfMine>) {
     sortedList2.forEach { println("${it.name} ${it.age} ${it.tel}") }
 
     println("\n***** friends.filter() with lambda")
-    val filteredList = friends.filter { it.age >= 35 }
+    val filteredList = friends.filter { it.age >= 33 }
     filteredList.forEach { println("${it.name} ${it.age} ${it.tel}") }
 
     println("\n***** friends.map()")
@@ -75,8 +75,8 @@ fun readListLambda(friends: List<FriendOfMine>) {
     println(mapList)
 
     println("\n***** friends.filter() with map()")
-    val filteredMapList1 = friends.filter { it.age >= 35 }.map(FriendOfMine::name)
-    val filteredMapList2 = friends.filter { it.age >= 35 }.map { it.name }
+    val filteredMapList1 = friends.filter { it.age >= 33 }.map(FriendOfMine::name)
+    val filteredMapList2 = friends.filter { it.age >= 33 }.map { it.name }
     println(filteredMapList1)
     println(filteredMapList2)
 }
@@ -108,6 +108,7 @@ fun modifyList(friends: MutableList<FriendOfMine>) {
     println("\n***** friendsSub2.slice()")
     val friendsSub2 = friends.slice(0..2)
     friendsSub2.forEach { println("${it.name} ${it.age} ${it.tel}") }
+    println(friends.containsAll(friendsSub2))
 
     println("\n***** friendsRev.asReversed()")
     val friendsRev = friends.asReversed()
@@ -116,12 +117,19 @@ fun modifyList(friends: MutableList<FriendOfMine>) {
     println("\n***** friendsRev.clear()")
     friendsRev.clear()
     println(friendsRev)
+    println(friends)
 
     val ls = friends.toList()
     val ml = friends.toMutableList()
     val st = friends.toSet()
     val ms = friends.toMutableSet()
     val hs = friends.toHashSet()
+
+    println("ls: ${ls.javaClass.canonicalName}")
+    println("ml: ${ml.javaClass.canonicalName}")
+    println("st: ${st.javaClass.canonicalName}")
+    println("ms: ${ms.javaClass.canonicalName}")
+    println("hs: ${hs.javaClass.canonicalName}")
 }
 
 fun useOnlyLinkedList(friends: LinkedList<FriendOfMine>) {
@@ -156,6 +164,37 @@ fun others(nList: List<Int>) {
     println(flatMapList)
 }
 
+fun `create a new array by adding indexes`() {
+    val list = listOf(2, 5, 1, 7, 8)
+
+    val lt1 = list.withIndex().filter { (i, _) -> i % 2 == 0 }
+    val lt2 = list.withIndex().filter { it.index % 2 == 0 }
+
+    println(lt1)
+    println(lt2)
+
+    val ls = listOf("Robert Downey Jr.", "Chris Evans", "Mark Ruffalo", "Chris Hemsworth", "Scarlett Johansson")
+    println("\n***** withIndex()")
+    val lt11 = ls.withIndex().filter { it.index > 2 && it.value.startsWith("Chris") }
+
+    lt11.forEach { (i, v) -> print("$v at $i, ") }
+    println()
+    lt11.forEach { print("${it.value} at ${it.index}, ") }
+
+    println("\n***** filterIndexed()")
+    val lt22 = ls.filterIndexed { index, _ -> index % 2 == 0 }
+    println(lt22)
+
+    println("\n***** mapIndexed()")
+    val lt33 = ls.mapIndexed { index, value -> value }
+    println(lt33)
+
+    println("\n***** forEachIndexed()")
+    ls.forEachIndexed { index, value ->
+        if (index % 2 == 0) print("$index : $value, ")
+    }
+}
+
 fun main(args: Array<String>) {
     var friends1 = arrayListOf(
         FriendOfMine("Robert Downey Jr.", 30, "000-0000-0000"),
@@ -177,4 +216,6 @@ fun main(args: Array<String>) {
 
     val nL = arrayListOf(20, 10, 50, 40, 30)
     others(nL)
+
+    `create a new array by adding indexes`()
 }
