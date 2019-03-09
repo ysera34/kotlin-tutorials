@@ -195,6 +195,52 @@ fun `create a new array by adding indexes`() {
     }
 }
 
+fun `processing the continuous range of values as a collection`() {
+    println("\n\n***** create IntRange instance")
+    val range = IntRange(1, 10)
+
+    println("\n***** use forEach()")
+    range.forEach { print("$it ") }
+    println()
+
+    (1..10).forEach { print("$it ") }
+
+    println("\n***** properties of IntRange")
+    println("first property: ${range.first}")
+    println("start property: ${range.start}")
+    println("last property: ${range.last}")
+    println("step value: ${range.step}")
+
+    println("\n***** range.isEmpty(): ${range.isEmpty()}")
+    println("***** range.none(): ${range.none()}")
+
+    println("\n***** range.contains(5): ${range.contains(5)}")
+
+    println("\n***** range.indexOf(7): ${range.indexOf(7)}")
+    val position = range.indexOf(7)
+    println("***** range.elementAt(position): ${range.elementAt(position)}")
+    println("***** range.elementAtOrNull(15): ${range.elementAtOrNull(15)}")
+
+    println("\n***** range.count(): ${range.count()}")
+    println("***** range.count(): ${range.count { it % 2 == 1 }}")
+    println("***** range.distinct().count(): ${range.distinct().count()}")
+    println("***** range.max(): ${range.max()}")
+    println("***** range.min(): ${range.min()}")
+    println("***** range.sum(): ${range.sum()}")
+    println("***** range.average(): ${range.average()}")
+
+    println("\n***** range.joinToString(): ${range.joinToString()}")
+    println("***** range.joinToString(): ${range.joinToString(", ")}")
+
+    println("\n***** range.filter() with lambda: ${range.filter { it >= 5 }}")
+
+    val ls = range.toList()
+    val ml = range.toMutableList()
+    val st = range.toSet()
+    val ms = range.toMutableSet()
+    val hs = range.toHashSet()
+}
+
 fun main(args: Array<String>) {
     var friends1 = arrayListOf(
         FriendOfMine("Robert Downey Jr.", 30, "000-0000-0000"),
@@ -218,4 +264,6 @@ fun main(args: Array<String>) {
     others(nL)
 
     `create a new array by adding indexes`()
+
+    `processing the continuous range of values as a collection`()
 }
