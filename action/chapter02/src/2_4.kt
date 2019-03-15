@@ -12,4 +12,4 @@ public class Person {
 }
 */
 /** Kotlin */
-class Person(val name: String)
+class Person1(val name: String)
