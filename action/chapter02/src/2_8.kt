@@ -1,4 +1,4 @@
-package geometry.shape
+package geometry.shapes
 
 import java.util.*
 
