@@ -12,6 +12,7 @@ buildscript {
 }
 
 apply plugin: 'kotlin2js'
+apply plugin: 'kotlin-dce-js'
 
 repositories {
     mavenCentral()
