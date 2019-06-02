@@ -8,6 +8,14 @@ fun main() {
     tryInlineFun()
     tryExtensionFun()
     studyScope()
+    printElement(parseHTML("""
+        <div>
+            test1
+            <img />
+            test2
+            <p a="3" b="abc">pTest</p>
+        </div>
+    """.trimIndent()))
 }
 
 fun studyNullability() {
