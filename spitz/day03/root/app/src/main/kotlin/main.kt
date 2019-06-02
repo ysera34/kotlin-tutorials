@@ -7,6 +7,7 @@ fun main() {
     studyAfterInline()
     tryInlineFun()
     tryExtensionFun()
+    studyScope()
 }
 
 fun studyNullability() {
