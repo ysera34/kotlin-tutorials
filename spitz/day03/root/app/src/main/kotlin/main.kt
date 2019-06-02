@@ -3,6 +3,9 @@ fun main() {
     hello()
 
     studyNullability()
+    studyBeforeInline()
+    studyAfterInline()
+    tryInlineFun()
 }
 
 fun studyNullability() {
