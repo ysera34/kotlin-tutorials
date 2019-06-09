@@ -3,4 +3,5 @@ fun main() {
     hello()
     classTest()
     inheritanceTest()
+    mapTest()
 }
