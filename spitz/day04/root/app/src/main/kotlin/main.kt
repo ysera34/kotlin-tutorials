@@ -4,4 +4,5 @@ fun main() {
     classTest()
     inheritanceTest()
     mapTest()
+    byLazyTest()
 }

@@ -1,5 +1,5 @@
 fun mapTest() {
-    val map = Map()
+    val map = MapTest1()
     map["test"] = "123"
     println(map["test"])
 
@@ -12,7 +12,7 @@ fun mapTest() {
     println(map.job)
 }
 
-class Map {
+class MapTest1 {
     private val map = mutableMapOf<String, String>()
     operator fun get(key: String) = map[key]
     operator fun set(key: String, value: String) { map[key] = value }
