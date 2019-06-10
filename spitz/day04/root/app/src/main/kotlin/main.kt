@@ -6,4 +6,5 @@ fun main() {
     mapTest()
     byLazyTest()
     sealedClassTest()
+    htmlBuilder()
 }
