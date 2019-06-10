@@ -5,4 +5,5 @@ fun main() {
     inheritanceTest()
     mapTest()
     byLazyTest()
+    sealedClassTest()
 }

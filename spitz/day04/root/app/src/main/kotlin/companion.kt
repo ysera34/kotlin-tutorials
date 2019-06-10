@@ -10,7 +10,7 @@ abstract class Parent2
 class Parent3 {
     val Child1 = object : Parent2() {}
 }
-object Child1: Parent2()
+object Child1 : Parent2()
 
 class SingleTon1 {
     companion object {
