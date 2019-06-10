@@ -7,4 +7,5 @@ fun main() {
     byLazyTest()
     sealedClassTest()
     htmlBuilder()
+    fetchBuilder()
 }
