@@ -5,4 +5,5 @@ fun main() {
     mutableDelegationTest()
     immutableDelegationTest()
     mapDelegationTest()
+    classDelegationTest()
 }
