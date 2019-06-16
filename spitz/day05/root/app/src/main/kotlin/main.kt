@@ -3,4 +3,5 @@ fun main() {
     hello()
     infixTest()
     mutableDelegationTest()
+    immutableDelegationTest()
 }

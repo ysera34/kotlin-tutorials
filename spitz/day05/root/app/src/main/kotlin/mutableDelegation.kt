@@ -3,7 +3,7 @@ import kotlin.reflect.KProperty
 
 fun mutableDelegationTest() {
     NotNull().action("ABC")
-    CustomDelegator("ABC::").action("abc")
+    CustomMutableDelegator("CustomMutableDelegator::").action("abc")
 }
 
 interface ReadWriteProperty<in R, T> {
@@ -42,7 +42,7 @@ class Delegator(val deco: String) : ReadWriteProperty<Any?, String> {
     }
 }
 
-class CustomDelegator(deco: String) {
+class CustomMutableDelegator(deco: String) {
     var a by Delegator(deco)
     fun action(v: String) {
         a = v
