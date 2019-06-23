@@ -5,4 +5,6 @@ suspend fun main() {
     continuationSequenceTest()
     coTest()
     coroutineTest()
+    launchTest()
+    asyncTest()
 }
