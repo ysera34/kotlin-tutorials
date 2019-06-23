@@ -3,4 +3,5 @@ fun main() {
     hello()
     continuationCPSTest()
     continuationSequenceTest()
+    coTest()
 }
