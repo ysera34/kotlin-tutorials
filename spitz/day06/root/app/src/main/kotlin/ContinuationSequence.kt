@@ -21,7 +21,7 @@ fun continuationSequenceTest() {
     println(s.last())
 }
 
-class Continuation<T> {
+class CustomContinuation<T> {
     var state = 0
     var isCompleted = false
     var result: T? = null
@@ -37,11 +37,11 @@ class Continuation<T> {
     }
 }
 
-fun continuation1(a: Int, continuation: Continuation<Int>? = null) = run {
+fun continuation1(a: Int, continuation: CustomContinuation<Int>? = null) = run {
     var v: Int
     val c = if (continuation == null) {
         v = a
-        Continuation()
+        CustomContinuation()
     } else {
         v = continuation.result!!
         continuation
